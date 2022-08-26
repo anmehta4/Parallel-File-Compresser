@@ -1,9 +1,18 @@
-Arnav Mehta, anmehta4
-Anvit Thekatte, anvit
+## Overview
+A basic zip application compresses a file with run-length encoding as the basic
+technique.
 
-I stored all the files first in a 2D char* array.
-Each index had a file which then had an array of all the characters.
-I Iterated through this array with chucnks of data roughly split up by num_of_threads
-Finally I let all the computation of the the frequency of the data happen concurrently 
-Using a CV and state variable ( myturn ) I ensured the threads run sequencitally while writing to the file.
+This application of parallel zip (`pzip`) will externally look the same; the general usage
+from the command line will be as follows:
+
+```
+prompt> ./pzip file > file.z
+```
+
+There may also be many input files (not just one, as above). However,
+internally, the program will use POSIX threads to parallelize the compression
+process.  
+
+
+
 
